@@ -1,4 +1,4 @@
-## 学习JavaScript基础知识，做一个更好的开发者
+## 学习JavaScript基础知识，作一个更好的开发者
 ### Index
 1. [原始类型](#原始类型)
 1. [数字](#数字)
@@ -138,12 +138,12 @@ Object.keys(obj).forEach(logProperty);
 ### 变量
 可以使用 var、let 和 const 定义变量。
 
-`var` 声明并且可选择性地初始化一个变量。未初始化的变量的值为 undefined。
+- `var` 声明并且可选择性地初始化一个变量。未初始化的变量的值为 undefined。
 用 var 声明的变量有一个函数作用域。
 
-`let` 声明的变量具有块作用域。
+- `let` 声明的变量具有块作用域。
 
-`const` 声明的变量不能重新被赋值。const 冻结变量 variable，`object.freeze()` 方法冻结对象 object。
+- `const` 声明的变量不能重新被赋值。const 冻结变量 variable，`object.freeze()` 方法冻结对象 object。
 
 在任何函数之外声明的变量，它的作用域都是全局的 global。
 

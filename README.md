@@ -2,7 +2,7 @@
 按语言进行分类
 
 ### JavaScript
-- [学习JavaScript基础知识，做一个更好的开发者](https://github.com/cwy007/articles/blob/master/javascript/js_fundamentals.md)
+- [学习JavaScript基础知识，作一个更好的开发者](https://github.com/cwy007/articles/blob/master/javascript/js_fundamentals.md)
 
 ### Ruby
 - [功能测试 vs 整合测试 vs 单元测试](https://github.com/cwy007/articles/blob/master/ruby/feature_tests_vs_integration_tests_vs_unit_tests.md)
