@@ -6,4 +6,3 @@
 
 ### Ruby
 - [功能测试 vs 整合测试 vs 单元测试]()
-Feature Tests vs. Integration Tests vs. Unit Tests
