@@ -119,7 +119,7 @@ french["no"]  = "non";
 french["yes"];//"oui"
 ```
 
-如果希望使对象不可变，使用 `object .freeze()` 方法。
+如果希望使对象不可变，使用 `object.freeze()` 方法。
 
 可以使用 `Object.keys()` 方法遍历对象的所有属性。
 ```js
@@ -138,17 +138,17 @@ Object.keys(obj).forEach(logProperty);
 ### 变量
 可以使用 var、let 和 const 定义变量。
 
-var 声明并且可选择性地初始化一个变量。未初始化的变量的值为 undefined。
+`var` 声明并且可选择性地初始化一个变量。未初始化的变量的值为 undefined。
 用 var 声明的变量有一个函数作用域。
 
-let 声明具有块作用域。
+`let` 声明的变量具有块作用域。
 
-使用 const 声明的变量不能重新被赋值。const 冻结变量 variable，`object.freeze()` 方法冻结对象 object。
+`const` 声明的变量不能重新被赋值。const 冻结变量 variable，`object.freeze()` 方法冻结对象 object。
 
-在任何函数之外声明的变量作用域都是全局的。
+在任何函数之外声明的变量，它的作用域都是全局的 global。
 
 ### 数组
-JavaScript 有类似数组的对象 -- 数组是使用对象来实现的，使用索引访问元素，索引被转换为字符串并用作检索出来的值的名称。在下一个示例中，arr[1] 获取的值与 arr['1'] 是相同的: 即 arr[1] === arr['1']。
+JavaScript 有类似数组的对象 -- 数组是使用对象来实现的，使用索引访问元素，索引被转换为字符串并用作检索出来的值的名称。在下一个示例中，`arr[1]` 获取的值与 `arr['1']` 是相同的: 即 `arr[1] === arr['1']`。
 
 一个简单的数组，比如：`let arr = ['A'， 'B'， 'C']` 通过如下的对象来模拟:
 
@@ -160,7 +160,7 @@ JavaScript 有类似数组的对象 -- 数组是使用对象来实现的，使�
 }
 ```
 
-用 `delete` 从数组中删除值会留下空洞。`splice()` 可以用来避免这个问题，但是它在移动所有元素（将位于被删除元素后面的元素向左移动一个位置）的时候是很慢的。
+用 `delete` 从数组中删除值会留下空洞 holes。`splice()` 可以用来避免这个问题，但是它在移动所有元素（将位于被删除元素后面的元素向左移动一个位置）的时候是很慢的。
 
 ```js
 let arr = ['A', 'B', 'C'];
@@ -179,7 +179,7 @@ console.log(arr.length); // 3
 - 箭头函数
 
 ### 函数声明
-- function 是在一行上的第一个关键字
+- `function` 是在一行上的第一个关键字
 - 它一定有名字
 - 可在定义前使用。函数声明被移动或“提升”到其作用域的顶部。
 
@@ -188,10 +188,10 @@ function doSomething(){}
 ```
 
 ### 函数表达式
-- 函数不是在一行上的第一个关键字
+- `function` 不是在一行上的第一个关键字
 - 函数名是可选的--可以是一个匿名函数表达式或一个命名函数表达式。
 - 它需要被定义，然后才能执行
-- 定义后可以自动执行(称为“IIFE”立即调用函数表达式)
+- 定义后可以自动执行(称为 `“IIFE” Immediately Invoked Function Expression` 立即调用函数表达式)
 
 ```js
 let doSomething = function() {}
@@ -201,10 +201,10 @@ let doSomething = function() {}
 箭头函数是用于创建匿名函数表达式的糖语法。
 
 ```js
-let doSomething = () = > {};
+let doSomething = () => {};
 ```
 
-箭头函数没有自己的`this`和参数
+箭头函数没有自己的`this`和参数 `arguments`
 
 ### 函数调用
 函数可以以不同的方式调用:
@@ -236,9 +236,9 @@ doSomething.call(theObject, arguments)
 let doSomethingWithObject = doSomething.bind(theObject);
 doSomethingWithObject();
 ```
-调用函数时传入的参数可以多于也可以少于函数在定义时声明的变量数。多余的参数将被忽略，丢失的参数将被设置为 undefined。
+调用函数时传入的参数可以多于也可以少于函数在定义时声明的变量数。多余的参数将被忽略，缺少的参数将被设置为 `undefined。`
 
-函数有两个伪参数: this 和 arguments。
+函数有两个伪参数: `this` 和 `arguments`。
 
 ### this
 `this` 表示函数的上下文。它的值取决于函数是如何被调用的。
@@ -256,7 +256,7 @@ doSomethingWithObject();
 ```
 
 ### 参数
-`arguments`伪参数提供调用时使用的所有参数。它是一个类数组的对象，但不是数组。它缺少数组所具有的方法。
+`arguments` 伪参数（`pseudo-parameter`）提供了调用函数时使用的所有参数。它是一个类数组的对象，但不是数组。它缺少数组所具有的方法。
 
 ```js
 function reduceToSum(total, value){
@@ -271,7 +271,7 @@ function sum(){
 sum(1,2,3);
 ```
 
-另一种替代选择是新的其余（rest）参数语法。这次 args 是一个数组对象。
+另一种替代选择是新的其余参数（rest parameters）语法。这次 args 是一个数组对象。
 ```js
 function sum(...args){
   return args.reduce(reduceToSum, 0);
@@ -279,7 +279,7 @@ function sum(...args){
 ```
 
 ### return 语句
-没有返回 `return` 语句的函数返回 `undefined`。使用 `return` 时要注意自动插入分号 `;`。流函数不会返回一个空对象，而是一个未定义的对象。
+没有 `return` 语句的函数返回 `undefined`。使用 `return` 时要注意自动插入分号 `;`。流函数(The flowing function)不会返回一个空对象，而是一个未定义的对象。
 
 ```js
 function getObject(){
@@ -288,6 +288,7 @@ function getObject(){
   }
 }
 getObject()
+// undefined
 ```
 
 为了避免这个问题，在 `return` 的相同行上使用 `{`
@@ -297,6 +298,7 @@ function getObject(){
   }
 }
 getObject()
+// {}
 ```
 
 ### 动态类型
@@ -321,12 +323,12 @@ typeof(fn);  //function
 ```
 
 ### 单线程
-主要的 JavaScript 运行时 runtime 是单线程的。两个函数不能在同时运行。运行时包含一个事件队列 queue，该队列存储要处理的消息列表。没有死锁 deadlock，所以不需要使用锁 lock。但是，事件队列中的代码需要快速运行。否则浏览器会变得没有响应，并要求终止 kill 任务。
+主要的 JavaScript 运行时 runtime 是单线程的。两个函数不能同时运行。运行时包含一个事件队列 queue，该队列存储要处理的消息列表。没有死锁 deadlock，所以不需要使用锁 lock。但是，事件队列中的代码需要快速运行,否则浏览器会变得没有响应，并要求终止 kill 任务。
 
 ### 异常
-JavaScript 有一个异常处理机制。通过使用 try/catch 语句包装代码，它可以像您期望的那样工作。try/catch 语句有单一的 catch 代码块，用于缓存所有异常。
+JavaScript 有一个异常处理机制。通过使用 `try/catch` 语句包装代码，它可以像您期望的那样工作。`try/catch` 语句有单一的 `catch` 代码块，用于缓存所有异常。
 
-同样有趣的是，JavaScript 有时更喜欢沉默的错误。这与 JavaScript 在 EcmaScript 3 之前没有抛出错误有关。
+同样有趣的是，JavaScript 有时更喜欢沉默的错误(silent errors)。这与 JavaScript 在 EcmaScript 3 之前没有抛出错误有关。
 
 当我试图修改一个冻结的 frozen 对象时，下面的代码不会抛出异常:
 ```js
@@ -334,7 +336,7 @@ let obj = Object.freeze({});
 obj.message = "text";
 ```
 
-严格模式消除了一些 JavaScript 无声的 silent 错误。`use strict;` 语句会激活严格模式。
+严格模式消除了一些 JavaScript 无声的 silent 错误。`"use strict";` 语句会激活严格模式。
 
 ### 原型模式
 `Object.create()`、构造函数和类 class 在原型系统上构建对象。
@@ -348,7 +350,7 @@ let specializedService = Object.create(service);
 console.log(specializedService.__proto__ === service); //true
 ```
 
-我使用 `object .create()` 构建了一个新的对象 `specializedService`，该对象有 `service` 对象作为它的原型 prototype。这意味着 `doSomething()`方法在 `specializedService` 对象上是可用的。这也意味着 `specializedService` 对象的 `__proto__` 属性指向 `service` 对象。
+我使用 `Object.create()` 构建了一个新的对象 `specializedService`，该对象有 `service` 对象作为它的原型 prototype。这意味着 `doSomething()`方法在 `specializedService` 对象上是可用的。这也意味着 `specializedService` 对象的 `__proto__` 属性指向 `service` 对象。
 
 现在让我们使用类 class 构建一个类似的对象。
 ```js
